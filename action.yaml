@@ -1,0 +1,22 @@
+# SPDX-FileCopyrightText: Copyright (c) 2026 Max Trunnikov
+# SPDX-License-Identifier: MIT
+---
+name: 'xslint-action'
+description: 'Xslint linter GitHub action'
+branding:
+  icon: alert-triangle
+  color: orange
+inputs:
+  dir:
+    description: 'Working directory'
+    required: true
+    default: '.'
+  suppress:
+    description: 'Check to suppress'
+    required: false
+runs:
+  using: 'docker'
+  image: Dockerfile
+  args:
+    - "${{ inputs.dir }}"
+    - "${{ inputs.suppress }}"
